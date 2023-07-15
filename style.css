@@ -25,9 +25,11 @@ body{
     height: 80vh;
 }
 .chatscroll{
+    position: relative;
     overflow-y: scroll;
-    text-align: center;
     height: 80vh;
+    width:50vw;
+    margin: 0 auto;
 }
 .chat{
     width: 100px;
