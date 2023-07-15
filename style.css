@@ -3,20 +3,23 @@
     margin:0px;padding:0px;
 }
 body{
-    background-color:floralwhite;
+    background-color:whitesmoke;
 }
 .title{
-    height: 20vh;
+    height: 10vh;
+    white-space: nowrap;
+    background-color:gold;
 }
 .title > *{
-    line-height: 20vh;
+    line-height: 10vh;
+    font-size:5vh;
+    transition: 0.1s;
+}
+.title > *:hover{
+    font-size:5.5vh;
 }
 .titletext{
-    font-size:10vh;
     font-family: 'Noto Sans JP', sans-serif;
-}
-.pasta{
-    font-size:10vh;
 }
 .main{
     bottom:0px;
@@ -30,8 +33,12 @@ body{
     height: 80vh;
     width:50vw;
     margin: 0 auto;
+    background-color:whitesmoke;
 }
 .chat{
     width: 100px;
     height: 100px;
+}
+.chatscroll::-webkit-scrollbar{
+    display:none;
 }
