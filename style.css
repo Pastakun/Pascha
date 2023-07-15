@@ -6,26 +6,30 @@ body{
     background-color:floralwhite;
 }
 .title{
-    height: 100px;
+    height: 20vh;
 }
 .title > *{
-    line-height: 100px;
+    line-height: 20vh;
 }
 .titletext{
-    font-size:40px;
+    font-size:10vh;
     font-family: 'Noto Sans JP', sans-serif;
 }
 .pasta{
-    font-size:80px;
+    font-size:10vh;
 }
 .main{
     bottom:0px;
     position:absolute;
     width: 100vw;
-    height: 100vh;
+    height: 80vh;
 }
-.chat{
+.chatscroll{
     overflow-y: scroll;
     text-align: center;
-    line-height: 100vh;
+    height: 80vh;
+}
+.chat{
+    width: 100px;
+    height: 100px;
 }
