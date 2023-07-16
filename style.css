@@ -1,6 +1,7 @@
 
 *{
     margin:0px;padding:0px;
+    font-family: 'Noto Sans JP', sans-serif;
 }
 body{
     background-color:#F9F2ED;
@@ -18,8 +19,7 @@ body{
     top: 25px;
     font-size:20px;
     transition: 0.1s;
-    font-family: 'Noto Sans JP', sans-serif;
-    position: fixed;
+    position: absolute;
     left: 80px;
 }
 .pasta{
@@ -28,7 +28,7 @@ body{
     width: 60px;
     height: 60px;
     transition: 0.1s;
-    position: fixed;
+    position: absolute;
 }
 .pasta:hover{
     top: 0px;
@@ -37,22 +37,56 @@ body{
     height: 80px;
 }
 .main{
+    top:80px;
     width: 100%;
-    height: 100%;
-    z-index: 2;
+    height: calc(100% - 80px);
+    position: relative;
 }
 .chatscroll{
     overflow-y: scroll;
-    width:60%;
-    height: 100%;
+    width:500px;
+    height: calc(100% - 80px);
     margin: 0 auto;
-    position: relative;
     background-color: #F9F2ED;
 }
 .chat{
     width: 100px;
     height: 100px;
 }
-.chatscroll::-webkit-scrollbar{
-    display:none;
+.input{
+    margin: 0 auto;
+    width: 500px;
+    height: 80px;
+    position: relative;
+}
+.text{
+    top:20%;
+    left:15%;
+    width: 60%;
+    height: 50%;
+    font-size: 16px;
+    position: absolute;
+    background-color:#F9F2ED;
+    border: 4px solid #3AB0FF;
+}
+.text:focus {
+    outline: 0;
+    box-shadow: 0 0 8px 0 #3AB0FF;
+}
+.send {
+    top:20%;
+    left:0%;
+    width: 60%;
+    height: calc(60% - 8px);;
+	text-align: center;
+	width: 10%;
+	border: 4px solid #3AB0FF;
+	color: #3AB0FF;
+    position: absolute;
+    line-height:40px;
+    user-select: none;
+}
+.send:hover {
+	color: #F9F2ED;
+	background: #3AB0FF;
 }
