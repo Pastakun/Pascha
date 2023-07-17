@@ -9,7 +9,9 @@ ws.addEventListener('message',function(e) {
     if(obj.auth == 'OK'){
         return;
     }
-    document.getElementsByClassName('chatscroll')[0].innerHTML += `<div><p>${obj.message}</p></div>`;
+    const b = document.getElementsByClassName('chatscroll')[0]
+    b.innerHTML += `<div><p>${obj.message}</p></div>`;
+    b.scrollTo(0, b.scrollHeight);
     
 });
 function send(){
