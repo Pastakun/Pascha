@@ -62,7 +62,7 @@ body{
 .text{
     top:20%;
     left:15%;
-    width: calc(10% - 8px);;
+    width: calc(60% - 8px);;
     height: 50%;
     font-size: 16px;
     position: absolute;
