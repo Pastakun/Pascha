@@ -13,7 +13,7 @@ body{
     width: 100%;
     background-color:#FFB562;
     position: fixed;
-    z-index: 1;
+    z-index: 2;
 }
 .titletext{
     top: 25px;
@@ -49,6 +49,12 @@ body{
     margin: 0 auto;
     background-color: #F9F2ED;
 }
+.chatscroll > div {
+    height: 32px;
+}
+.chatscroll > div > p {
+    font-size: 16px;
+}
 .chat{
     width: 100px;
     height: 100px;
@@ -59,44 +65,81 @@ body{
     height: 80px;
     position: relative;
 }
-.text{
+.input > *{
     top:20%;
-    left:15%;
-    width: calc(60% - 8px);;
-    height: 50%;
-    font-size: 16px;
+    height: calc(60% - 8px);
+    line-height:40px;
     position: absolute;
+    font-size: 16px;
+}
+.text{
+    left:15%;
+    width: calc(60% - 8px);
     background-color:#F9F2ED;
     border: 4px solid #3AB0FF;
 }
 .text:focus {
     outline: 0;
-    border: 4px solid #3AB0FF;
 }
 .send {
-    top:20%;
     left:0%;
-    height: calc(60% - 8px);
-	text-align: center;
 	width: calc(10% - 8px);
-	border: 4px solid #3AB0FF;
 	color: #3AB0FF;
-    position: absolute;
-    line-height:40px;
     user-select: none;
+    text-align: center;
+    border: 4px solid #3AB0FF;
 }
 .send:hover {
 	color: #F9F2ED;
 	background: #3AB0FF;
 }
-.color {
-    position: absolute;
-    top:20%;
-    left:70%;
-    height: 60%;
-    line-height:40px;
-    user-select: none;
-    width: calc(10% - 8px);;
+.start {
+    width:100%;
+    height:100%;
+    position: fixed;
+    z-index: 1;
+    background: #F9F2EDDD;
+}
+.startmenu {
+    position: relative;
+    margin: 0 auto;
+    width:500px;
+    height:500px;
+}
+.startmenu > * {
+    position: relative;
+    margin: 0 auto;
+}
+.starttext {
+    top: 120px;
+    width: 100%;
+    text-align: center;
+}
+.startinput {
+    top: 120px;
+    left: 20%;
+    width: calc(60% - 8px);
+    background-color:#F9F2ED;
     border: 4px solid #3AB0FF;
-    background: #F9F2ED;
+    height: 40px;
+    font-size: 16px;
+}
+.startinput:focus {
+    outline: 0;
+}
+.startbutton {
+    top: 160px;
+    width: calc(10% - 8px);;
+    height: 40px;
+    text-align: center;
+    font-size: 16px;
+	color: #3AB0FF;
+    user-select: none;
+    text-align: center;
+    border: 4px solid #3AB0FF;
+    line-height:40px;
+}
+.startbutton:hover {
+	color: #F9F2ED;
+	background: #3AB0FF;
 }
