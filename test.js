@@ -22,20 +22,20 @@ function connect(){
             connect();
         },3000);  
     });
-    function send(){
-        const a = document.getElementsByClassName('text')[0];
-        ws.send(JSON.stringify({'to': 'Pascha', 'message': a.value, 'username': username}));
-        a.value = '';
-    }
-    document.getElementsByClassName('send')[0].addEventListener('click', function(){
-        send();
-    });
-    document.getElementsByClassName('text')[0].addEventListener('keydown', function(event) {
-      if (event.key === 'Enter') {
-        send();
-      }
-    });
 }
+function send(){
+    const a = document.getElementsByClassName('text')[0];
+    ws.send(JSON.stringify({'to': 'Pascha', 'message': a.value, 'username': username}));
+    a.value = '';
+}
+document.getElementsByClassName('send')[0].addEventListener('click', function(){
+    send();
+});
+document.getElementsByClassName('text')[0].addEventListener('keydown', function(event) {
+    if (event.key === 'Enter') {
+        send();
+    }
+});
 document.getElementsByClassName('startbutton')[0].addEventListener('click', function(){
     username = document.getElementsByClassName('startinput')[0].value;
     document.getElementsByClassName('start')[0].remove();
