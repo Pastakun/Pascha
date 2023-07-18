@@ -1,6 +1,7 @@
 document.getElementsByClassName('startinput')[0].focus();
 let ws = null;
 let username = null;
+const id = new Date().getTime().toString();
 function connect(){
     ws = new WebSocket("wss://cloud.achex.ca/Pascha");
     ws.addEventListener('open',function(e) {
@@ -10,6 +11,9 @@ function connect(){
     ws.addEventListener('message',function(e) {
         const obj = JSON.parse(e.data);
         if(obj.auth == 'OK'){
+            return;
+        }
+        if(obj.id === id) {
             return;
         }
         const b = document.getElementsByClassName('chatscroll')[0]
@@ -25,7 +29,12 @@ function connect(){
 }
 function send(){
     const a = document.getElementsByClassName('text')[0];
-    ws.send(JSON.stringify({'to': 'Pascha', 'message': a.value, 'username': username}));
+    if(a.value !== '') {
+        ws.send(JSON.stringify({'to': 'Pascha', 'message': a.value, 'username': username, 'id': id}));
+        const b = document.getElementsByClassName('chatscroll')[0]
+        b.innerHTML += `<div><p>${username}：${a.value}</p></div>`;
+        b.scrollTo(0, b.scrollHeight);
+    }
     a.value = '';
 }
 document.getElementsByClassName('send')[0].addEventListener('click', function(){
