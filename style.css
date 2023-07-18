@@ -16,8 +16,8 @@ body{
     z-index: 2;
 }
 .titletext{
-    top: 25px;
-    font-size:20px;
+    top: 24px;
+    font-size:24px;
     transition: 0.1s;
     position: absolute;
     left: 80px;
@@ -50,10 +50,9 @@ body{
     background-color: #F9F2ED;
 }
 .chatscroll > div {
-    height: 32px;
 }
 .chatscroll > div > p {
-    font-size: 16px;
+    font-size: 24px;
 }
 .chat{
     width: 100px;
