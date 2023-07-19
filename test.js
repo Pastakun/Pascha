@@ -16,7 +16,7 @@ function connect(){
         if(obj.id === id) {
             return;
         }
-        const b = document.getElementsByClassName('chatscroll')[0]
+        const b = document.getElementsByClassName('chatscroll')[0];
         b.innerHTML += `<div><p>${obj.username}：${obj.message}</p></div>`;
         b.scrollTo(0, b.scrollHeight);
         
