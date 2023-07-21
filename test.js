@@ -50,3 +50,7 @@ document.getElementsByClassName('startbutton')[0].addEventListener('click', func
     document.getElementsByClassName('start')[0].remove();
     connect();
 });
+document.getElementsByClassName('pasta')[0].addEventListener('click', function() {
+    const a = document.getElementsByClassName('text')[0];
+    a.value += 'ー<font color="pink">ヽ(ﾟ∀｡)ﾉ<font color="black">ヽ(ﾟ∀｡)ﾉ<font color="#a2ffa2">ヽ(ﾟ∀｡)ﾉ</font>ーーー';
+})
