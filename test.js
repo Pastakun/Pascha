@@ -2,6 +2,7 @@ document.getElementsByClassName('startinput')[0].focus();
 let ws = null;
 let username = null;
 const id = new Date().getTime().toString();
+const music = new Audio('カーソル移動1.mp3');
 function connect(){
     ws = new WebSocket("wss://cloud.achex.ca/Pascha");
     ws.addEventListener('open',function(e) {
@@ -19,6 +20,7 @@ function connect(){
         const b = document.getElementsByClassName('chatscroll')[0];
         b.innerHTML += `<div><p>${obj.username}：${obj.message}</p></div>`;
         b.scrollTo(0, b.scrollHeight);
+        music.play();
         
     });
     ws.addEventListener('close',function(e) {
