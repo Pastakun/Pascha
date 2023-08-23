@@ -50,8 +50,6 @@ body{
     background-color: #F9F2ED;
 }
 .chatscroll > div {
-}
-.chatscroll > div > p {
     font-size: 24px;
 }
 .chat{
