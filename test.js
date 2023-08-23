@@ -3,6 +3,14 @@ let ws = null;
 let username = null;
 const id = new Date().getTime().toString();
 const music = new Audio('カーソル移動1.mp3');
+const text = document.getElementsByClassName('text')[0];
+const chatscroll = document.getElementsByClassName('chatscroll')[0];
+function addchat (usernamevalue, messagevalue) {
+    let newelement = document.createElement('div');
+    newelement.innerHTML = `${usernamevalue}：${messagevalue}`;
+    chatscroll.appendChild(newelement);
+    chatscroll.scrollTo(0, chatscroll.scrollHeight);
+}
 function connect(){
     ws = new WebSocket("wss://cloud.achex.ca/Pascha");
     ws.addEventListener('open',function(e) {
@@ -17,9 +25,7 @@ function connect(){
         if(obj.id === id) {
             return;
         }
-        const b = document.getElementsByClassName('chatscroll')[0];
-        b.innerHTML += `<div><p>${obj.username}：${obj.message}</p></div>`;
-        b.scrollTo(0, b.scrollHeight);
+        addchat(obj.username, obj.message);
         music.play();
         
     });
@@ -30,14 +36,11 @@ function connect(){
     });
 }
 function send(){
-    const a = document.getElementsByClassName('text')[0];
-    if(a.value !== '') {
-        ws.send(JSON.stringify({'to': 'Pascha', 'message': a.value, 'username': username, 'id': id}));
-        const b = document.getElementsByClassName('chatscroll')[0]
-        b.innerHTML += `<div><p>${username}：${a.value}</p></div>`;
-        b.scrollTo(0, b.scrollHeight);
+    if(text.value !== '') {
+        ws.send(JSON.stringify({'to': 'Pascha', 'message': text.value, 'username': username, 'id': id}));
+        addchat(username, text.value);
     }
-    a.value = '';
+    text.value = '';
 }
 document.getElementsByClassName('send')[0].addEventListener('click', function(){
     send();
