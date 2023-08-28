@@ -74,7 +74,9 @@ document.addEventListener('click', function(e) {
                 text.focus();
             }
             if (editname === 1) {
-                chatscroll.innerHTML = '';
+                if (confirm('本当にやるんだな？')) {
+                    chatscroll.innerHTML = '';
+                }
             }
         }
         editscroll.remove();
