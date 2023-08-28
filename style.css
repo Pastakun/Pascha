@@ -18,7 +18,6 @@ body{
 .titletext{
     top: 24px;
     font-size:24px;
-    transition: 0.1s;
     position: absolute;
     left: 80px;
 }
@@ -151,4 +150,22 @@ body{
 .startbutton:hover {
 	color: #F9F2ED;
 	background: #3AB0FF;
+}
+.editscroll{
+    overflow-y: scroll;
+    width:500px;
+    height: calc(100% - 80px);
+    position: absolute;
+    top: 0px;
+    left: calc(50% - 250px);
+    background-color: #3AB0FF;
+}
+.editscroll > * {
+	color: #F9F2ED;
+    user-select: none;
+    font-size: 24px;
+}
+.editscroll > *:hover {
+	color: #3AB0FF;
+	background: #F9F2ED;
 }
