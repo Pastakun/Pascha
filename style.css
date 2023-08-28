@@ -67,9 +67,9 @@ body{
     font-size: 20px;
     height:100%;
     float: left;
-    margin-left: 10px;
 }
 .text{
+    margin-left: 10px;
     width: calc(350px - 8px);
     background-color:#F9F2ED;
     border: 4px solid #3AB0FF;
@@ -90,6 +90,7 @@ body{
 	background: #3AB0FF;
 }
 .edit {
+    margin-left: 10px;
 	width: calc(60px - 8px);
 	color: #3AB0FF;
     user-select: none;
