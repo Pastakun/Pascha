@@ -45,7 +45,7 @@ function send(){
 document.getElementsByClassName('send')[0].addEventListener('click', function(){
     send();
 });
-document.getElementsByClassName('text')[0].addEventListener('keydown', function(event) {
+text.addEventListener('keydown', function(event) {
     if (event.key === 'Enter') {
         send();
     }
@@ -58,4 +58,10 @@ document.getElementsByClassName('startbutton')[0].addEventListener('click', func
 document.getElementsByClassName('pasta')[0].addEventListener('click', function() {
     const a = document.getElementsByClassName('text')[0];
     a.value += 'ー<font color="pink">ヽ(ﾟ∀｡)ﾉ<font color="black">ヽ(ﾟ∀｡)ﾉ<font color="#a2ffa2">ヽ(ﾟ∀｡)ﾉ</font>ーーー';
-})
+});
+document.getElementsByClassName('edit')[0].addEventListener('focus', (event) => {
+    console.log('test');
+});
+document.getElementsByClassName('edit')[0].addEventListener('blur', (event) => {
+    console.log('test');
+});
