@@ -70,7 +70,7 @@ body{
 }
 .text{
     margin-left: 10px;
-    width: calc(350px - 8px);
+    width: calc(360px - 8px);
     background-color:#F9F2ED;
     border: 4px solid #3AB0FF;
 }
