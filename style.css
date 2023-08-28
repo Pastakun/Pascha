@@ -59,19 +59,18 @@ body{
 .input{
     margin: 0 auto;
     width: 500px;
-    height: 80px;
+    height: calc(60px - 8px);
     position: relative;
+    top: 20px;
 }
 .input > *{
-    top:20%;
-    height: calc(60% - 8px);
-    line-height:40px;
-    position: absolute;
-    font-size: 16px;
+    font-size: 20px;
+    height:100%;
+    float: left;
+    margin-left: 10px;
 }
 .text{
-    left:15%;
-    width: calc(60% - 8px);
+    width: calc(350px - 8px);
     background-color:#F9F2ED;
     border: 4px solid #3AB0FF;
 }
@@ -79,14 +78,26 @@ body{
     outline: 0;
 }
 .send {
-    left:0%;
-	width: calc(10% - 8px);
+	width: calc(60px - 8px);
 	color: #3AB0FF;
     user-select: none;
     text-align: center;
     border: 4px solid #3AB0FF;
+    line-height: calc(60px - 8px);
 }
 .send:hover {
+	color: #F9F2ED;
+	background: #3AB0FF;
+}
+.edit {
+	width: calc(60px - 8px);
+	color: #3AB0FF;
+    user-select: none;
+    text-align: center;
+    border: 4px solid #3AB0FF;
+    line-height: calc(60px - 8px);
+}
+.edit:hover {
 	color: #F9F2ED;
 	background: #3AB0FF;
 }
