@@ -80,7 +80,7 @@ document.addEventListener('click', function(e) {
             }
             if (editname === 2) {
                 const inputurl = prompt('urlを入力');
-                text.value += `<a href="${inputurl}">${inputurl}</a>`
+                text.value += `<button onclick = "window.open('${inputurl}')">${inputurl}</button>`
                 text.focus();
             }
         }
