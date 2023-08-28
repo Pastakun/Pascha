@@ -5,6 +5,16 @@ const id = new Date().getTime().toString();
 const music = new Audio('カーソル移動1.mp3');
 const text = document.getElementsByClassName('text')[0];
 const chatscroll = document.getElementsByClassName('chatscroll')[0];
+let editopen = false;
+const editname = ['ヽ(ﾟ∀｡)ﾉｳｪ🍡', '全部消す'];
+const editscroll = document.createElement('div');
+editscroll.className = 'editscroll';
+editscroll.setAttribute('tabindex','-1');
+for(let i = 0;i < editname.length; i++) {
+    const editelement = document.createElement('p');
+    editelement.textContent = editname[i];
+    editscroll.appendChild(editelement);
+}
 function addchat (usernamevalue, messagevalue) {
     let newelement = document.createElement('div');
     newelement.innerHTML = `${usernamevalue}：${messagevalue}`;
@@ -59,9 +69,12 @@ document.getElementsByClassName('pasta')[0].addEventListener('click', function()
     const a = document.getElementsByClassName('text')[0];
     a.value += 'ー<font color="pink">ヽ(ﾟ∀｡)ﾉ<font color="black">ヽ(ﾟ∀｡)ﾉ<font color="#a2ffa2">ヽ(ﾟ∀｡)ﾉ</font>ーーー';
 });
-document.getElementsByClassName('edit')[0].addEventListener('focus', (event) => {
-    console.log('test');
-});
-document.getElementsByClassName('edit')[0].addEventListener('blur', (event) => {
-    console.log('test');
+document.addEventListener('click', function(e) {
+    if (editopen === true) {
+        editscroll.remove();
+        editopen = false;
+    }else if (e.target === document.getElementsByClassName('edit')[0]){
+        document.getElementsByClassName('main')[0].appendChild(editscroll);
+        editopen = true;
+    }
 });
