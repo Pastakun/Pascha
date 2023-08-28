@@ -159,13 +159,13 @@ body{
     top: 0px;
     left: calc(50% - 250px);
     background-color: #3AB0FF;
+    overflow: hidden;
 }
 .editscroll > * {
-	color: #F9F2ED;
     user-select: none;
     font-size: 24px;
 }
 .editscroll > *:hover {
-	color: #3AB0FF;
-	background: #F9F2ED;
+    color: #3AB0FF;
+	background-color: #F9F2ED;
 }
