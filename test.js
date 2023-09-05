@@ -6,7 +6,7 @@ const music = new Audio('カーソル移動1.mp3');
 const text = document.getElementsByClassName('text')[0];
 const chatscroll = document.getElementsByClassName('chatscroll')[0];
 let editopen = false;
-const editnamelist = ['ヽ(ﾟ∀｡)ﾉｳｪ🍡', '全部消す', 'リンク'];
+const editnamelist = ['ヽ(ﾟ∀｡)ﾉｳｪ🍡', '全部消す', 'リンク', 'スクラッチキャット'];
 const editscroll = document.createElement('div');
 editscroll.className = 'editscroll';
 editscroll.setAttribute('tabindex','-1');
@@ -80,7 +80,11 @@ document.addEventListener('click', function(e) {
             }
             if (editname === 2) {
                 const inputurl = prompt('urlを入力');
-                text.value += `<button onclick = "window.open('${inputurl}')">${inputurl}</button>`
+                text.value += `<button onclick = "window.open('${inputurl}')">${inputurl}</button>`;
+                text.focus();
+            }
+            if (editname === 3) {
+                text.value += '<img src="cat.svg" width="24px" height="24px">';
                 text.focus();
             }
         }
