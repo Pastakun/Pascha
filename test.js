@@ -88,59 +88,60 @@ document.addEventListener('click', function(e) {
                 text.focus();
             }
             if (editname === 4) {
-                const bodyelement = document.getElementsByTagName('body')[0];
-                const video = document.createElement('video');
-                video.autoplay = true;
-                video.style = 'display:none;';
-                bodyelement.appendChild(video);
-                const canvas = document.createElement('canvas');
-                canvas.style = 'display:none;';
-                bodyelement.appendChild(canvas);
-                canvascontext = canvas.getContext('2d');
-                navigator.mediaDevices.getDisplayMedia({
-                    audio: false,
-                    video: true,
-                    preferCurrentTab: true
-                }).then(function(stream) {
-                    video.srcObject = stream;
-                });
-                function canvasset() {
-                    canvascontext.drawImage(video, 0, 0, canvas.width, canvas.height);
-                    requestAnimationFrame(canvasset);
+                if (confirm('本当にやるんだな？')) {
+                    const bodyelement = document.getElementsByTagName('body')[0];
+                    const video = document.createElement('video');
+                    video.autoplay = true;
+                    video.style = 'display:none;';
+                    bodyelement.appendChild(video);
+                    const canvas = document.createElement('canvas');
+                    canvas.style = 'display:none;';
+                    bodyelement.appendChild(canvas);
+                    canvascontext = canvas.getContext('2d');
+                    navigator.mediaDevices.getDisplayMedia({
+                        audio: false,
+                        video: true,
+                        preferCurrentTab: true
+                    }).then(function(stream) {
+                        video.srcObject = stream;
+                    });
+                    function canvasset() {
+                        canvascontext.drawImage(video, 0, 0, canvas.width, canvas.height);
+                        requestAnimationFrame(canvasset);
+                    }
+                    canvasset();
+                    const socket = new WebSocket('wss://cloud.achex.ca/Pastalive');
+                    socket.addEventListener('open', function(e) {
+                        socket.send(JSON.stringify({'auth': 'Pastalive', 'password': 'pass'}));
+                        const interval = setInterval(function() {
+                            socket.send(JSON.stringify({'to': 'Pastalive', 'message': canvas.toDataURL('image/jpeg')}));
+                        }, 100);
+                        socket.addEventListener('close', function(e) {
+                            clearInterval(interval);
+                        });
+                    });
+                    text.value += `<button onclick = "const chatscroll = document.getElementsByClassName('chatscroll')[0];
+                    const canvas = document.createElement('canvas');
+                    canvas.style = 'position: sticky;top: 0;';
+                    chatscroll.appendChild(canvas);
+                    const canvascontext = canvas.getContext('2d');
+                    const image = new Image();
+                    const socket = new WebSocket('wss://cloud.achex.ca/Pastalive');
+                    socket.addEventListener('open', function(e) {
+                        socket.send(JSON.stringify({'auth': 'Pastalive', 'password': 'pass'}));
+                        socket.addEventListener('message', function(e) {
+                            const obj = JSON.parse(e.data);
+                            if(obj.auth == 'OK'){
+                                return;
+                            }
+                            image.src = obj.message;
+                            image.onload = function() {
+                                canvascontext.clearRect(0, 0, canvas.width, canvas.height);
+                                canvascontext.drawImage(image, 0, 0, canvas.width, canvas.width / 2);
+                            };
+                        });
+                    });">live</button>`;
                 }
-                canvasset();
-                const socket = new WebSocket('wss://cloud.achex.ca/Pastalive');
-                socket.addEventListener('open', function(e) {
-                    socket.send(JSON.stringify({'auth': 'Pastalive', 'password': 'pass'}));
-                    const interval = setInterval(function() {
-                        socket.send(JSON.stringify({'to': 'Pastalive', 'message': canvas.toDataURL('image/jpeg')}));
-                    }, 100);
-                    socket.addEventListener('close', function(e) {
-                        clearInterval(interval);
-                    });
-                });
-                text.value += `<button onclick = "const chatscroll = document.getElementsByClassName('chatscroll')[0];
-                const canvas = document.createElement('canvas');
-                canvas.style = 'position: sticky;top: 0;';
-                chatscroll.appendChild(canvas);
-                const canvascontext = canvas.getContext('2d');
-                const image = new Image();
-                const socket = new WebSocket('wss://cloud.achex.ca/Pastalive');
-                socket.addEventListener('open', function(e) {
-                    socket.send(JSON.stringify({'auth': 'Pastalive', 'password': 'pass'}));
-                    socket.addEventListener('message', function(e) {
-                        const obj = JSON.parse(e.data);
-                        if(obj.auth == 'OK'){
-                            return;
-                        }
-                        image.src = obj.message;
-                        image.onload = function() {
-                            canvascontext.clearRect(0, 0, canvas.width, canvas.height);
-                            canvascontext.drawImage(image, 0, 0, canvas.width, canvas.width / 2);
-                        };
-                    });
-                });">live</button>`;
-                text.focus();
             }
         }
         editscroll.remove();
