@@ -6,7 +6,7 @@ const music = new Audio('カーソル移動1.mp3');
 const text = document.getElementsByClassName('text')[0];
 const chatscroll = document.getElementsByClassName('chatscroll')[0];
 let editopen = false;
-const editnamelist = ['ヽ(ﾟ∀｡)ﾉｳｪ🍡', '全部消す', 'リンク', 'スクラッチキャット', 'live'];
+const editnamelist = ['ヽ(ﾟ∀｡)ﾉｳｪ🍡', '全部消す', 'リンク', 'スクラッチキャット', 'live', 'たぼわ'];
 const editscroll = document.createElement('div');
 editscroll.className = 'editscroll';
 editscroll.setAttribute('tabindex','-1');
@@ -141,6 +141,13 @@ document.addEventListener('click', function(e) {
                         });
                     });">live</button>`;
                 }
+            }
+            if (editname === 5) {
+                const inputurl = prompt('プロジェクトidを入力');
+                let newelement = document.createElement('div');
+                newelement.innerHTML = `<iframe src="https://turbowarp.org/${inputurl}/embed" width="499" height="416" allowtransparency="true" frameborder="0" scrolling="no" allowfullscreen style="position: absolute;top: 0px;left:0px;"></iframe>`;
+                chatscroll.appendChild(newelement);
+                
             }
         }
         editscroll.remove();
