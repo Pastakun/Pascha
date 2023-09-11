@@ -101,6 +101,7 @@ document.addEventListener('click', function(e) {
                     navigator.mediaDevices.getDisplayMedia({
                         audio: false,
                         video: true,
+                        preferCurrentTab: true
                     }).then(function(stream) {
                         video.srcObject = stream;
                     });
